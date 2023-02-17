@@ -1,11 +1,18 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+import styles from "@/styles/Home.module.css";
+import Head from "next/head";
+import Link from "next/link";
+import { Container, Navbar } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+export const getStaticProps = async () => {
+  const res = await fetch(
+    "https://cdata-backend-production-b82b.up.railway.app/api/announcements"
+  );
+  const data = await res.json();
+  return {
+    props: { results: data },
+  };
+};
+export default function Home({ results }) {
   return (
     <>
       <Head>
@@ -14,9 +21,34 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-
+      <main className={styles.background2} >
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand href="/">
+              <h2 className={styles.navBrand}>Cdata</h2>
+            </Navbar.Brand>
+            <Link href="/" className={styles.navlink}>
+              Home
+            </Link>
+            <Link href="/students" className={styles.navlink}>
+              students
+            </Link>
+            <Link href="/teachers" className={styles.navlink}>
+              teachers
+            </Link>
+          </Container>
+        </Navbar>
+        <div >
+          <h1 className={styles.title}>Announcements</h1>
+          <div className={styles.announce}>
+            {results.map((result) => (
+              <>
+                <h1 className={styles.text1}>👉{result.content}👈</h1>
+              </>
+            ))}
+          </div>
+        </div>
       </main>
     </>
-  )
+  );
 }
