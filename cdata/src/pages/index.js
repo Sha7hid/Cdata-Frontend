@@ -4,11 +4,10 @@ import Link from "next/link";
 import { Container, Navbar } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSession, signOut, getSession } from "next-auth/react";
-import Announcements from "@/pages/components/announcements";
 
 export default function Home() {
   const { data: session, status } = useSession();
-  if (status === "authenticated") {
+  if (session) {
     return (
       <>
         <Head>
@@ -32,12 +31,13 @@ export default function Home() {
               <Link href="/teachers" className={styles.navlink}>
                 teachers
               </Link>
-              <button onClick={() => signOut()}>SignOut</button>
+              <button className="btn btn-danger" onClick={() => signOut()} >SignOut</button>
             </Container>
           </Navbar>
           <div>
-            <h1 className={styles.title}>Announcements</h1>
-          <Announcements/>
+            <h1 className={styles.title}>Welcome to cdata</h1>
+            <h4 className={styles.title}>Details Of Students and Teachers are available here</h4>
+          
           </div>
         </main>
       </>

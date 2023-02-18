@@ -2,6 +2,7 @@ import styles from '@/styles/Home.module.css'
 import Link from 'next/link';
 import { Card, Container, Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSession, signOut, getSession } from "next-auth/react";
 export const getStaticProps = async () => {
     const res = await fetch(
       "https://cdata-backend-production-b82b.up.railway.app/api/teachers"
@@ -12,6 +13,8 @@ export const getStaticProps = async () => {
     };
   };
 export default function Teachers({results}) {
+  const { data: session, status } = useSession();
+  if (session) {
     return (
         <><Navbar bg="dark" variant="dark">
             <Container>
@@ -27,6 +30,7 @@ export default function Teachers({results}) {
                 <Link href='/teachers' className={styles.navlink}>
                     teachers
                 </Link>
+                <button className="btn btn-danger" onClick={() => signOut()} >SignOut</button>
             </Container>
         </Navbar><div className={styles.background}>
         <div className={styles.gridview}>
@@ -63,4 +67,12 @@ export default function Teachers({results}) {
         </div>
             </div></>
     );
+  }else {
+    return (
+      <div className={styles.background3}>
+        <h2>You are not signed in</h2>
+        <Link href='/login'><button className="btn btn-primary">Go to Login page</button></Link>
+      </div>
+    );
+  }
 }

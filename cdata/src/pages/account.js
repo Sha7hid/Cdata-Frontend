@@ -1,10 +1,12 @@
 import React from "react";
+import styles from '../styles/Home.module.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useSession, signOut, getSession } from "next-auth/react";
 const account = () => {
     const {data: session, status} = useSession()
     if(status === 'authenticated'){
         return(
-            <div>
+            <div >
             <p>Welcome {session.user.name}</p>
             <button onClick={() => signOut()}>Sign Out</button>
         </div>
