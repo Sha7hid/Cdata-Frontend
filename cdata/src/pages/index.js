@@ -23,13 +23,13 @@ export default function Home() {
                 <h2 className={styles.navBrand}>Cdata</h2>
               </Navbar.Brand>
               <Link href="/" className={styles.navlink}>
-                Home
+                <p className={styles.home}>Home</p>
               </Link>
               <Link href="/students" className={styles.navlink}>
-                students
+             <p className={styles.home}>students</p>   
               </Link>
               <Link href="/teachers" className={styles.navlink}>
-                teachers
+                <p className={styles.home}>teachers</p>
               </Link>
               <button className="btn btn-danger" onClick={() => signOut()} >SignOut</button>
             </Container>

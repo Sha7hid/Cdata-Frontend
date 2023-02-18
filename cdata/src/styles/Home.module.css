@@ -346,9 +346,9 @@
   .text1{
     font-size:12px ;
   }
-  .navlink{
-    font-size: 5px;
-  }
+.home{
+  font-size: 12px;
+}
 }
 /* Mobile */
 @media (max-width: 479px) {
