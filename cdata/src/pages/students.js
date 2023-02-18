@@ -1,6 +1,6 @@
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
-import { Card, Container, Navbar } from "react-bootstrap";
+import { Card, Container, Navbar, NavLink } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSession, signOut, getSession } from "next-auth/react";
 export const getStaticProps = async () => {
@@ -17,20 +17,30 @@ export default function Students({ results }) {
   if (session) {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" collapseOnSelect expand="sm" >
+        <Navbar.Toggle aria-controls="navbarScroll" data-bs-target="#navbarScroll"/>
         <Container>
           <Navbar.Brand href="/">
             <h2 className={styles.navBrand}>Cdata</h2>
           </Navbar.Brand>
-          <Link href="/" className={styles.navlink}>
+          <Navbar.Collapse>
+            <NavLink eventKey="1">
+            <Link href="/" className={styles.navlink}>
             Home
           </Link>
+            </NavLink>
+            <NavLink eventKey="2">
           <Link href="/students" className={styles.navlink}>
             students
           </Link>
+          </NavLink>
+          <NavLink eventKey="3">
           <Link href="/teachers" className={styles.navlink}>
             teachers
           </Link>
+          </NavLink>
+          </Navbar.Collapse>
+        
           <button className="btn btn-danger" onClick={() => signOut()} >SignOut</button>
         </Container>
       </Navbar>
