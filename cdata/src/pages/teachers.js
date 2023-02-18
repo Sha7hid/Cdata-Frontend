@@ -16,23 +16,35 @@ export default function Teachers({results}) {
   const { data: session, status } = useSession();
   if (session) {
     return (
-        <><Navbar bg="dark" variant="dark">
-            <Container>
-                <Navbar.Brand href="/">
-                    <h2 className={styles.navBrand}>Cdata</h2>
-                </Navbar.Brand>
-                <Link href='/' className={styles.navlink}>
-                    Home
-                </Link>
-                <Link href='/students' className={styles.navlink}>
-                    students
-                </Link>
-                <Link href='/teachers' className={styles.navlink}>
-                    teachers
-                </Link>
-                <button className="btn btn-danger" onClick={() => signOut()} >SignOut</button>
-            </Container>
-        </Navbar><div className={styles.background}>
+        <>
+          <Navbar bg="dark" variant="dark" collapseOnSelect expand="sm" >
+        <Navbar.Toggle aria-controls="navbarScroll" data-bs-target="#navbarScroll"/>
+        <Container>
+          <Navbar.Brand href="/">
+            <h2 className={styles.navBrand}>Cdata</h2>
+          </Navbar.Brand>
+          <Navbar.Collapse>
+            <NavLink eventKey="1">
+            <Link href="/" className={styles.navlink}>
+            Home
+          </Link>
+            </NavLink>
+            <NavLink eventKey="2">
+          <Link href="/students" className={styles.navlink}>
+            students
+          </Link>
+          </NavLink>
+          <NavLink eventKey="3">
+          <Link href="/teachers" className={styles.navlink}>
+            teachers
+          </Link>
+          </NavLink>
+          </Navbar.Collapse>
+        
+          <button className="btn btn-danger" onClick={() => signOut()} >SignOut</button>
+        </Container>
+      </Navbar>
+        <div className={styles.background}>
         <div className={styles.gridview}>
           {results.map((result) => (
             <div className={styles.cardwrapper}>
