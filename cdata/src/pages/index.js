@@ -46,7 +46,7 @@ export default function Home() {
       </Navbar>
           <div>
             <h1 className={styles.title}>Welcome to cdata</h1>
-            <h4 className={styles.title}>Details Of Students and Teachers are available here</h4>
+            <h5 className={styles.title}>Details Of Students and Teachers are available here</h5>
           
           </div>
         </main>
