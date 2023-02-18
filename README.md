@@ -3,4 +3,4 @@
 
 Next app for displaying students and teachers data of a college.Used a sign in and sign up authentication using google next-auth.
 # Deployed in vercel
-#Link - https://cdata-frontend.vercel.app/
+# Link - https://cdata-frontend.vercel.app/
