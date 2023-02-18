@@ -20,6 +20,12 @@
   align-items: center;
   margin-top: 2rem;
 }
+.details{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
 .para{
   font-family: 'Kanit', sans-serif;
 }
@@ -361,6 +367,9 @@
   }
   .text1{
     font-size: 25px;
+  }
+  .details{
+    margin-left: 2rem;
   }
 
   .grid {
