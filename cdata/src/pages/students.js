@@ -28,7 +28,7 @@ export default function Students({ results }) {
             <Link href="/" className={styles.navlink}>
             Home
           </Link>
-            </NavLink><br></br>
+            </NavLink>
             <NavLink eventKey="2">
           <Link href="/students" className={styles.navlink}>
             students

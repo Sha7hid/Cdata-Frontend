@@ -95,7 +95,8 @@
   text-align: center;
   color: antiquewhite;
   display: inline-block;
-  font-family: 'Mochiy Pop One', sans-serif;;
+  font-family: 'Mochiy Pop One', sans-serif;
+  margin-left: 2rem;
 }
 .navlink:hover{
   color: blue;
