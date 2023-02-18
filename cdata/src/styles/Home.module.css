@@ -21,6 +21,7 @@
   margin-top: 2rem;
 }
 .details{
+  font-family:'Kanit', sans-serif;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -370,6 +371,7 @@
   }
   .details{
     margin-left: 2rem;
+    margin-right: 2rem;
   }
 
   .grid {
