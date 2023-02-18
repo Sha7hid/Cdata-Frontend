@@ -1,6 +1,6 @@
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link';
-import { Card, Container, Navbar } from 'react-bootstrap';
+import { Card, Container, Navbar,NavLink } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSession, signOut, getSession } from "next-auth/react";
 export const getStaticProps = async () => {

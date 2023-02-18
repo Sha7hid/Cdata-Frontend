@@ -1,7 +1,7 @@
 import styles from "@/styles/Home.module.css";
 import Head from "next/head";
 import Link from "next/link";
-import { Container, Navbar } from "react-bootstrap";
+import { Container, Navbar , NavLink} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSession, signOut, getSession } from "next-auth/react";
 
